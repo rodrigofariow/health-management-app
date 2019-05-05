@@ -1,8 +1,8 @@
-import React from 'react';
-import { render } from 'react-testing-library';
-import { IntlProvider } from 'react-intl';
+import React from 'react'
+import { render } from 'react-testing-library'
+import { IntlProvider } from 'react-intl'
 
-import FeaturePage from '../index';
+import FeaturePage from '../index'
 
 describe('<FeaturePage />', () => {
   it('should render its heading', () => {
@@ -12,8 +12,8 @@ describe('<FeaturePage />', () => {
       <IntlProvider locale="en">
         <FeaturePage />
       </IntlProvider>,
-    );
+    )
 
-    expect(firstChild).toMatchSnapshot();
-  });
-});
+    expect(firstChild).toMatchSnapshot()
+  })
+})

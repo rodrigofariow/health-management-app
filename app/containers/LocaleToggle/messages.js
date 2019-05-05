@@ -3,9 +3,9 @@
  *
  * This contains all the text for the LanguageToggle component.
  */
-import { defineMessages } from 'react-intl';
+import { defineMessages } from 'react-intl'
 
-export const scope = 'boilerplate.containers.LocaleToggle';
+export const scope = 'boilerplate.containers.LocaleToggle'
 
 export default defineMessages({
   en: {
@@ -16,4 +16,4 @@ export default defineMessages({
     id: `${scope}.de`,
     defaultMessage: 'de',
   },
-});
+})

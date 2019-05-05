@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import NormalA from 'components/A';
+import styled from 'styled-components'
+import NormalA from 'components/A'
 
 const RepoLink = styled(NormalA)`
   height: 100%;
@@ -7,6 +7,6 @@ const RepoLink = styled(NormalA)`
   display: flex;
   align-items: center;
   width: 100%;
-`;
+`
 
-export default RepoLink;
+export default RepoLink

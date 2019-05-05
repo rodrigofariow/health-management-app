@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 const buttonStyles = css`
   display: inline-block;
@@ -21,6 +21,6 @@ const buttonStyles = css`
     background: #41addd;
     color: #fff;
   }
-`;
+`
 
-export default buttonStyles;
+export default buttonStyles

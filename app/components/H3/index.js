@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function H3(props) {
-  return <h3 {...props} />;
+  return <h3 {...props} />
 }
 
-export default H3;
+export default H3

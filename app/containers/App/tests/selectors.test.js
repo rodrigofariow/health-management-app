@@ -5,81 +5,81 @@ import {
   makeSelectError,
   makeSelectRepos,
   makeSelectLocation,
-} from '../selectors';
+} from '../selectors'
 
 describe('selectGlobal', () => {
   it('should select the global state', () => {
-    const globalState = {};
+    const globalState = {}
     const mockedState = {
       global: globalState,
-    };
-    expect(selectGlobal(mockedState)).toEqual(globalState);
-  });
-});
+    }
+    expect(selectGlobal(mockedState)).toEqual(globalState)
+  })
+})
 
 describe('makeSelectCurrentUser', () => {
-  const currentUserSelector = makeSelectCurrentUser();
+  const currentUserSelector = makeSelectCurrentUser()
   it('should select the current user', () => {
-    const username = 'mxstbr';
+    const username = 'mxstbr'
     const mockedState = {
       global: {
         currentUser: username,
       },
-    };
-    expect(currentUserSelector(mockedState)).toEqual(username);
-  });
-});
+    }
+    expect(currentUserSelector(mockedState)).toEqual(username)
+  })
+})
 
 describe('makeSelectLoading', () => {
-  const loadingSelector = makeSelectLoading();
+  const loadingSelector = makeSelectLoading()
   it('should select the loading', () => {
-    const loading = false;
+    const loading = false
     const mockedState = {
       global: {
         loading,
       },
-    };
-    expect(loadingSelector(mockedState)).toEqual(loading);
-  });
-});
+    }
+    expect(loadingSelector(mockedState)).toEqual(loading)
+  })
+})
 
 describe('makeSelectError', () => {
-  const errorSelector = makeSelectError();
+  const errorSelector = makeSelectError()
   it('should select the error', () => {
-    const error = 404;
+    const error = 404
     const mockedState = {
       global: {
         error,
       },
-    };
-    expect(errorSelector(mockedState)).toEqual(error);
-  });
-});
+    }
+    expect(errorSelector(mockedState)).toEqual(error)
+  })
+})
 
 describe('makeSelectRepos', () => {
-  const reposSelector = makeSelectRepos();
+  const reposSelector = makeSelectRepos()
   it('should select the repos', () => {
-    const repositories = [];
+    const repositories = []
     const mockedState = {
       global: {
         userData: {
           repositories,
         },
       },
-    };
-    expect(reposSelector(mockedState)).toEqual(repositories);
-  });
-});
+    }
+    expect(reposSelector(mockedState)).toEqual(repositories)
+  })
+})
 
 describe('makeSelectLocation', () => {
-  const locationStateSelector = makeSelectLocation();
+  const locationStateSelector = makeSelectLocation()
   it('should select the location', () => {
     const router = {
       location: { pathname: '/foo' },
-    };
+    }
     const mockedState = {
       router,
-    };
-    expect(locationStateSelector(mockedState)).toEqual(router.location);
-  });
-});
+    }
+    expect(locationStateSelector(mockedState)).toEqual(router.location)
+  })
+})

@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from 'react-testing-library';
-import { IntlProvider, defineMessages } from 'react-intl';
+import React from 'react'
+import { render } from 'react-testing-library'
+import { IntlProvider, defineMessages } from 'react-intl'
 
-import Toggle from '../index';
+import Toggle from '../index'
 
 describe('<Toggle />', () => {
   it('should contain default text', () => {
-    const defaultEnMessage = 'someContent';
-    const defaultDeMessage = 'someOtherContent';
+    const defaultEnMessage = 'someContent'
+    const defaultDeMessage = 'someOtherContent'
     const messages = defineMessages({
       en: {
         id: 'boilerplate.containers.LocaleToggle.en',
@@ -17,19 +17,19 @@ describe('<Toggle />', () => {
         id: 'boilerplate.containers.LocaleToggle.en',
         defaultMessage: defaultDeMessage,
       },
-    });
+    })
     const { container } = render(
       <IntlProvider locale="en">
         <Toggle values={['en', 'de']} messages={messages} />
       </IntlProvider>,
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
+    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
 
   it('should not have ToggleOptions if props.values is not defined', () => {
-    const { container } = render(<Toggle />);
-    const elements = container.querySelectorAll('option');
-    expect(elements).toHaveLength(1);
-    expect(container.firstChild.value).toEqual('--');
-  });
-});
+    const { container } = render(<Toggle />)
+    const elements = container.querySelectorAll('option')
+    expect(elements).toHaveLength(1)
+    expect(container.firstChild.value).toEqual('--')
+  })
+})

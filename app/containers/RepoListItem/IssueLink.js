@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import NormalA from 'components/A';
+import styled from 'styled-components'
+import NormalA from 'components/A'
 
 const IssueLink = styled(NormalA)`
   height: 100%;
@@ -8,6 +8,6 @@ const IssueLink = styled(NormalA)`
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-`;
+`
 
-export default IssueLink;
+export default IssueLink
