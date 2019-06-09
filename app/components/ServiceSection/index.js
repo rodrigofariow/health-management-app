@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import SectionHeader from '../SectionHeader'
+import { Paper, Typography } from '@material-ui/core'
 import Field from '../Field'
 
-const Container = styled.div`
-  border: 6px solid lightgray;
-  border-radius: 2px;
+const Container = styled(Paper)`
   max-width: 1300px;
+`
+
+const HeaderSummary = styled.div`
+  padding: 12px 24px 12px 24px;
 `
 
 const FieldSection = styled.div`
@@ -18,7 +20,9 @@ const FieldSection = styled.div`
 export default function ServiceSection() {
   return (
     <Container>
-      <SectionHeader title="Serviço" />
+      <HeaderSummary>
+        <Typography>Serviço</Typography>
+      </HeaderSummary>
       <FieldSection>
         <Field label="Nome" placeholder="Iniciais do Utente" />
         <Field multiline label="Antecedentes Pessoais" />
