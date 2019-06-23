@@ -19,7 +19,7 @@ export default function ServiceSection() {
         <Typography>Serviço</Typography>
       </HeaderSummary>
       <PanelBody>
-        <Field label="Nome" placeholder="Iniciais do utente" />
+        <Field label="Cenário" placeholder="Iniciais do utente" />
         <Field multiline label="Antecedentes pessoais" />
       </PanelBody>
     </Container>

@@ -59,6 +59,7 @@ export default function PatientFocus({ focus, handleDeleteButtonClick }) {
           label="Diagnóstico de enfermagem"
           multiline /* value={focus.diagnosis} */
         />
+        <Field label="Objetivos" multiline />
         <Field
           label="Intervenções de enfermagem"
           multiline
