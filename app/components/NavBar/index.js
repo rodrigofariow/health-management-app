@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import UserInfo from '../UserInfo'
 
 const Container = styled.div`
-  background-color: cornflowerblue;
+  background-color: dodgerblue;
   display: grid;
   padding: 0 7px 0 7px;
   width: 100%;
