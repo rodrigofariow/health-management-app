@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
-  ExpansionPanelDetails,
   Typography,
   TextField,
   IconButton,
@@ -14,13 +13,7 @@ import {
   Delete as DeleteIcon,
 } from '@material-ui/icons'
 import Field from '../Field'
-
-const FocusDetails = styled(ExpansionPanelDetails)`
-  &&& {
-    display: grid;
-  }
-  grid-row-gap: 10px;
-`
+import PanelBody from '../PanelBody'
 
 const FocusSummary = styled(({ className, ...props }) => (
   <ExpansionPanelSummary classes={{ content: className }} {...props} />
@@ -53,7 +46,7 @@ export default function PatientFocus({ focus, handleDeleteButtonClick }) {
           <DeleteIcon />
         </IconButton>
       </FocusSummary>
-      <FocusDetails>
+      <PanelBody>
         <AdditionalNotes>
           <TextField multiline />
         </AdditionalNotes>
@@ -72,7 +65,7 @@ export default function PatientFocus({ focus, handleDeleteButtonClick }) {
           // value={focus.interventions}
         />
         <Field label="Resultados obtidos" multiline />
-      </FocusDetails>
+      </PanelBody>
     </ExpansionPanel>
   )
 }
