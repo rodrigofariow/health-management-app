@@ -24,8 +24,8 @@ export default function ServiceSection() {
         <Typography>Serviço</Typography>
       </HeaderSummary>
       <FieldSection>
-        <Field label="Nome" placeholder="Iniciais do Utente" />
-        <Field multiline label="Antecedentes Pessoais" />
+        <Field label="Nome" placeholder="Iniciais do utente" />
+        <Field multiline label="Antecedentes pessoais" />
       </FieldSection>
     </Container>
   )

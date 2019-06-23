@@ -1,12 +1,18 @@
 import React from 'react'
+import { shape, string, func } from 'prop-types'
 import styled from 'styled-components'
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Typography,
+  TextField,
+  IconButton,
 } from '@material-ui/core'
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons'
+import {
+  ExpandMore as ExpandMoreIcon,
+  Delete as DeleteIcon,
+} from '@material-ui/icons'
 import Field from '../Field'
 
 const FocusDetails = styled(ExpansionPanelDetails)`
@@ -16,22 +22,66 @@ const FocusDetails = styled(ExpansionPanelDetails)`
   grid-row-gap: 10px;
 `
 
-export default function PatientFocus() {
-  const [isExpanded, setIsExpanded] = React.useState(false)
+const FocusSummary = styled(({ className, ...props }) => (
+  <ExpansionPanelSummary classes={{ content: className }} {...props} />
+))`
+  display: flex;
+  justify-content: space-between;
+`
+
+const AdditionalNotes = styled.div`
+  margin-bottom: 15px;
+  display: grid;
+`
+
+export default function PatientFocus({ focus, handleDeleteButtonClick }) {
+  const [isExpanded, setIsExpanded] = React.useState(true)
 
   function handlePanelClick() {
     setIsExpanded(expand => !expand)
   }
+
+  function handleDeleteClick() {
+    handleDeleteButtonClick(focus.id)
+  }
+
   return (
     <ExpansionPanel expanded={isExpanded} onChange={handlePanelClick}>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <FocusSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>Foco</Typography>
-      </ExpansionPanelSummary>
+        <IconButton aria-label="Delete" onClick={handleDeleteClick}>
+          <DeleteIcon />
+        </IconButton>
+      </FocusSummary>
       <FocusDetails>
-        <Field label="Dados relevantes para o diagnóstico" multiline />
-        <Field label="Diagnóstico" multiline />
-        <Field label="Intervenções de Enfermagem" multiline />
+        <AdditionalNotes>
+          <TextField multiline />
+        </AdditionalNotes>
+        <Field
+          label="Dados relevantes para o diagnóstico"
+          multiline
+          // value={focus.relevantData}
+        />
+        <Field
+          label="Diagnóstico de enfermagem"
+          multiline /* value={focus.diagnosis} */
+        />
+        <Field
+          label="Intervenções de enfermagem"
+          multiline
+          // value={focus.interventions}
+        />
+        <Field label="Resultados obtidos" multiline />
       </FocusDetails>
     </ExpansionPanel>
   )
+}
+
+PatientFocus.propTypes = {
+  focus: shape({
+    relevantData: string.isRequired,
+    diagnosis: string.isRequired,
+    interventions: string.isRequired,
+  }),
+  handleDeleteButtonClick: func.isRequired,
 }

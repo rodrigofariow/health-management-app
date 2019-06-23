@@ -1,25 +1,67 @@
 import React from 'react'
-import styled from 'styled-components'
+import { uniqueId } from 'lodash'
+import { Button } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
+import { ActionPanel, Container, Content } from './styled'
+import { useBindedActionsReducer } from '../../utils/hooks'
+import { createComponentReducer } from '../../utils/redux'
 import ServiceSection from '../ServiceSection'
-import PatientFocus from '../PatientFocus'
+import FocusList from './FocusList'
 
-const Container = styled.div`
-  display: flex;
-  margin-top: 50px;
-  justify-content: center;
-`
+function focusGenerator() {
+  return {
+    id: uniqueId('focus'), // Would be replaced by a real ID after creating it in the server
+    relevantData: '',
+    diagnosis: '',
+    interventions: '',
+  }
+}
 
-const Content = styled.div`
-  max-width: 1300px;
-  width: 100%;
-`
+const initialState = {
+  focuses: [focusGenerator()],
+}
+
+const reducerObject = {
+  addFocus: draft => {
+    draft.focuses.push(focusGenerator())
+  },
+  deleteFocus: (draft, { payload: focusId }) => {
+    const focusIndex = draft.focuses.findIndex(focus => focus.id === focusId)
+    draft.focuses.splice(focusIndex, 1)
+  },
+}
+
+const reducer = createComponentReducer(reducerObject)
 
 export default function PatientDetails() {
+  const [state, actions] = useBindedActionsReducer(
+    reducer,
+    reducerObject,
+    initialState,
+  )
+
+  function handleDeleteButtonClick(focusId) {
+    actions.deleteFocus(focusId)
+  }
+
   return (
     <Container>
       <Content>
         <ServiceSection />
-        <PatientFocus />
+        <ActionPanel>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={actions.addFocus}
+          >
+            <AddIcon />
+            Adicionar Foco
+          </Button>
+        </ActionPanel>
+        <FocusList
+          focuses={state.focuses}
+          handleDeleteButtonClick={handleDeleteButtonClick}
+        />
       </Content>
     </Container>
   )
