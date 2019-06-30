@@ -8,10 +8,8 @@ import {
   TextField,
   IconButton,
 } from '@material-ui/core'
-import {
-  ExpandMore as ExpandMoreIcon,
-  Delete as DeleteIcon,
-} from '@material-ui/icons'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import DeleteIcon from '@material-ui/icons/Delete'
 import Field from '../Field'
 import PanelBody from '../PanelBody'
 
