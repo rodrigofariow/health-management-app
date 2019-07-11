@@ -17,7 +17,7 @@ const app = express()
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
-  outputPath: resolve(process.cwd(), 'build'),
+  outputPath: resolve(__dirname, '../build'),
   publicPath: '/',
 })
 
@@ -28,7 +28,7 @@ const prettyHost = customHost || 'localhost'
 
 // use the gzipped bundle
 app.get('*.js', (req, res, next) => {
-  req.url = req.url + '.gz'; // eslint-disable-line
+  req.url = req.url + '.gz' // eslint-disable-line
   res.set('Content-Encoding', 'gzip')
   next()
 })
