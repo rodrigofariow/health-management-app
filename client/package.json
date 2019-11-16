@@ -32,12 +32,6 @@
     "lint": "eslint src/",
     "lint:fix": "eslint --fix src/"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint:fix",
-      "pre-push": "yarn lint"
-    }
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -54,7 +48,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "husky": "^3.0.9"
-  }
+  "devDependencies": {}
 }

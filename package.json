@@ -1,0 +1,17 @@
+{
+  "name": "health-management-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:f4ria/health-management-app.git",
+  "author": "Rodrigo Faria <rodrigo.faria@cartrack.com>",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "cd ./client && yarn lint:fix",
+      "pre-push": "cd ./client && yarn lint"
+    }
+  },
+  "devDependencies": {
+    "husky": "^3.0.9"
+  }
+}
